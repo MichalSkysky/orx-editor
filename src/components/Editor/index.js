@@ -1,12 +1,45 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import Menu from "../Menu/index.js";
+import Home from "../Home/index.js";
+import Config from "../Config/index.js";
+import Texture from "../Texture/index.js";
+import Sound from "../Sound/index.js";
+import { PAGES } from "../../constans.js";
+
+const Pages = {
+  [PAGES.HOME]: Home,
+  [PAGES.CONFIG]: Config,
+  [PAGES.TEXTURE]: Texture,
+  [PAGES.SOUND]: Sound,
+};
 
 const Editor = () => {
+  const [page, setPage] = useState(PAGES.HOME);
+  const [configs, setConfigs] = useState([]);
+  const [textures, setTextures] = useState([]);
+  const [sounds, setSounds] = useState([]);
 
-    useEffect(() => {
-        fetch("data/config").then(d => d.json()).then(d => console.log(d))
-    }, [])
+  useEffect(() => {
+    fetch("data/config")
+      .then((d) => d.json())
+      .then((d) => setConfigs(d));
+    fetch("data/texture")
+      .then((d) => d.json())
+      .then((d) => setTextures(d));
+    fetch("data/sound")
+      .then((d) => d.json())
+      .then((d) => setSounds(d));
+  }, []);
 
-    return <div>Test2</div>
-}
+  const Component = Pages[page];
 
-export default Editor
+  return (
+    <div>
+      <Menu {...{ page, setPage }} />
+      {page}
+      {<Component {...{ page, configs, textures, sounds }} />}
+    </div>
+  );
+};
+
+export default Editor;

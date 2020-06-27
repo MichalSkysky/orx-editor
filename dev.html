@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>orxEditor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Source Code Pro', monospace;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Source Code Pro", monospace;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="text/javascript" src="./node_modules/steal/steal.js" main></script>
-</body>
+    <script
+      type="text/javascript"
+      src="./node_modules/steal/steal.js"
+      main
+    ></script>
+    <script>
+      var up;
+      setInterval(
+        () =>
+          fetch("up")
+            .then((d) => d.text())
+            .then((d) => {
+              if (!up) up = d;
+              if (d != up) window.location.reload();
+            }),
+        1000
+      );
+    </script>
+  </body>
 </html>
