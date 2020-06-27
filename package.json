@@ -1,0 +1,26 @@
+{
+  "name": "orx-editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "steal-tools",
+    "start": "node start.js",
+    "dev": "node start.js 3000 dev.html"
+  },
+  "bin": {
+    "orx-editor": "./start.js"
+  },
+  "files": [
+    "index.html",
+    "dist"
+  ],
+  "dependencies": {
+    "opener": "^1.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "serve": "^11.3.2",
+    "steal": "^2.2.4",
+    "steal-tools": "^2.2.6"
+  }
+}
