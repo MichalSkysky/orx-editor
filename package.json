@@ -10,6 +10,11 @@
     "format": "prettier *.js src --write",
     "prepublishOnly": "yarn build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michalskysky/orx-editor.git"
+  },
+  "homepage": "https://github.com/michalskysky/orx-editor",
   "bin": {
     "orx-editor": "./start.js"
   },
