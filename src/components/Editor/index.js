@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Editor = () => {
 
-    return <div>Test</div>
+    useEffect(() => {
+        fetch("data/config").then(d => d.json()).then(d => console.log(d))
+    }, [])
+
+    return <div>Test2</div>
 }
 
 export default Editor
