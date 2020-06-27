@@ -14,7 +14,8 @@
   },
   "files": [
     "index.html",
-    "dist"
+    "dist",
+    "start.js"
   ],
   "dependencies": {
     "opener": "^1.5.1",
