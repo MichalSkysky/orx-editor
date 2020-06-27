@@ -1,12 +1,13 @@
 {
   "name": "orx-editor",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "steal-tools",
     "start": "node start.js",
-    "dev": "node start.js 3000 dev.html"
+    "dev": "node start.js 3000 dev.html",
+    "prepublishOnly": "yarn build"
   },
   "bin": {
     "orx-editor": "./start.js"
