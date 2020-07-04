@@ -21,7 +21,8 @@
   "files": [
     "index.html",
     "dist",
-    "start.js"
+    "start.js",
+    "loader.svg"
   ],
   "dependencies": {
     "mime": "^2.4.6",
