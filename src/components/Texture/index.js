@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Container from "../Container/index.js";
 
 const textureStyle = {
-  maxHeight: 300,
   padding: 10,
   border: "1px solid #3c3c3c",
   margin: 10,
+  alignItems: 'center',
   background: "#f2f2f2",
 };
 
@@ -27,7 +27,9 @@ const Texture = ({ textures }) => (
           <Container>
             {texture} ({width}x{height})
           </Container>
-          <img onLoad={load} src={`data/texture/${texture}`} alt={texture} />
+          <Container style={{ margin: 'auto' }}>
+            <img style={{ alignSelf: 'center', maxWidth: '100%' }} onLoad={load} src={`data/texture/${texture}`} alt={texture} />
+          </Container>
         </Container>
       );
     })}

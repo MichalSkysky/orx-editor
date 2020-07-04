@@ -51,4 +51,4 @@ http
   })
   .listen(port);
 
-// opener("http://localhost:" + port);
+opener("http://localhost:" + port);
