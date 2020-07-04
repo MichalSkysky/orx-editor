@@ -24,10 +24,10 @@ http
     console.log("url: " + url);
 
     const files = [
-      path.resolve(__dirname, url),
       path.resolve(cwd, url),
-      path.resolve(__dirname, url.replace(/\..*$/, "")),
+      path.resolve(__dirname, url),
       path.resolve(cwd, url.replace(/\..*$/, "")),
+      path.resolve(__dirname, url.replace(/\..*$/, "")),
     ];
 
     let file = files.find((file) => fs.existsSync(file));
@@ -51,4 +51,4 @@ http
   })
   .listen(port);
 
-opener("http://localhost:" + port);
+// opener("http://localhost:" + port);
