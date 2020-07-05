@@ -30,12 +30,6 @@ const Config = ({ configs }) => {
   const [data, setData] = useState(null);
   const [view, setView] = useStorage("config.view", "pretty");
 
-  const loadData = async (config) => {
-    const data = await fetchText(`data/config/${config}`);
-    setRawData(data);
-    setData(parseIni(data));
-  };
-
   useEffect(() => {
     if (configs.includes(CreationTemplate)) {
     }
@@ -45,7 +39,10 @@ const Config = ({ configs }) => {
   }, []);
 
   useEffect(() => {
-    config && loadData(config);
+    config && fetchText(`data/config/${config}`).then(data => {
+      setRawData(data);
+      setData(parseIni(data));
+    })
   }, [config]);
 
   return (
