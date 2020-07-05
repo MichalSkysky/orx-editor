@@ -13,7 +13,7 @@ const menuStyle = {
   background: "#f2f2f2",
 };
 
-const Menu = ({ page, setPage, toggleSettings, loading }) => {
+const Menu = ({ project, page, setPage, toggleSettings, loading }) => {
   return (
     <Container style={menuStyle}>
       <Container
@@ -28,7 +28,7 @@ const Menu = ({ page, setPage, toggleSettings, loading }) => {
         />
         <Title large>editor</Title>
       </Container>
-      {loading && <Loader />}
+      {loading ? <Loader /> : <strong>{project}</strong>}
       <Container row>
         {Object.values(PAGES)
           .filter((p) => p !== PAGES.HOME)

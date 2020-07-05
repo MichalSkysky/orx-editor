@@ -10,7 +10,6 @@ const mime = require("mime");
 const up = +new Date();
 
 console.log(up);
-
 console.log("port: ", port);
 console.log("start page: ", startpage);
 console.log("current working dir: " + cwd);

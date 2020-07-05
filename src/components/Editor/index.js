@@ -7,6 +7,7 @@ import Sound from "../Sound/index.js";
 import Container from "../Container/index.js";
 import Settings from "../Settings/index.js";
 import { PAGES } from "../../constans.js";
+import { fetchJson, useStorage } from "../../utils/index.js";
 
 const Pages = {
   [PAGES.HOME]: Home,
@@ -15,12 +16,9 @@ const Pages = {
   [PAGES.SOUND]: Sound,
 };
 
-const wait = (t) => new Promise((r) => setTimeout(() => r(), t));
-
-const fetchJson = (url) => fetch(url).then((r) => r.json());
-
 const Editor = () => {
-  const [page, setPage] = useState(PAGES.HOME);
+  const [boot, setBoot] = useState(false);
+  const [page, setPage] = useStorage("editor.page", PAGES.HOME);
   const [configs, setConfigs] = useState([]);
   const [textures, setTextures] = useState([]);
   const [sounds, setSounds] = useState([]);
@@ -30,6 +28,10 @@ const Editor = () => {
   const toggleSettings = () => showSettings(!settingsVisible);
 
   useEffect(() => {
+    if (!Object.values(PAGES).includes(page)) {
+      setPage(PAGES.HOME);
+    }
+
     setLoading(true);
     Promise.all([
       fetchJson("src"),
@@ -42,16 +44,19 @@ const Editor = () => {
       setTextures(textures);
       setSounds(sounds);
       setLoading(false);
+      setBoot(true);
     });
   }, []);
 
   const Component = Pages[page];
 
-  return (
+  return !boot ? null : (
     <Container>
       {settingsVisible && <Settings {...{ toggleSettings }} />}
-      <Menu {...{ page, loading, setPage, toggleSettings }} />
-      {<Component {...{ project, page, configs, textures, sounds }} />}
+      <Menu {...{ project, page, loading, setPage, toggleSettings }} />
+      {Component && (
+        <Component {...{ project, page, configs, textures, sounds }} />
+      )}
     </Container>
   );
 };

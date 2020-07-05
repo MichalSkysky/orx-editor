@@ -9,6 +9,7 @@ const Link = ({ active, href, onClick, style, children }) => {
         href,
         style: {
           color: "black",
+          cursor: "pointer",
           textDecoration: hover ? "underline" : "none",
           fontWeight: active || hover ? "bold" : "normal",
           ...style,

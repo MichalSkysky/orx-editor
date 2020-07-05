@@ -5,7 +5,7 @@ const textureStyle = {
   padding: 10,
   border: "1px solid #3c3c3c",
   margin: 10,
-  alignItems: 'center',
+  alignItems: "center",
   background: "#f2f2f2",
 };
 
@@ -27,8 +27,13 @@ const Texture = ({ textures }) => (
           <Container>
             {texture} ({width}x{height})
           </Container>
-          <Container style={{ margin: 'auto' }}>
-            <img style={{ alignSelf: 'center', maxWidth: '100%' }} onLoad={load} src={`data/texture/${texture}`} alt={texture} />
+          <Container style={{ margin: "auto" }}>
+            <img
+              style={{ alignSelf: "center", maxWidth: "100%" }}
+              onLoad={load}
+              src={`data/texture/${texture}`}
+              alt={texture}
+            />
           </Container>
         </Container>
       );

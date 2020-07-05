@@ -25,10 +25,12 @@
     "loader.svg"
   ],
   "dependencies": {
+    "core-js": "^3.6.5",
     "mime": "^2.4.6",
     "opener": "^1.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
     "prettier": "^2.0.5",
