@@ -3,7 +3,6 @@ import Container from "../Container/index.js";
 import Link from "../Link/index.js";
 import Button from "../Button/index.js";
 import { parseIni, fetchText, useStorage } from "../../utils/index.js";
-import { raw } from "core-js/fn/string";
 
 const CreationTemplate = "CreationTemplate.ini";
 const SettingsTemplate = "SettingsTemplate.ini";
